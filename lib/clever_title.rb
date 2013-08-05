@@ -1,6 +1,6 @@
 class String
-  def clever_title
-    clever = CleverTitle.new self
+  def clever_title args = {}
+    clever = CleverTitle.new self, args
     clever.title
   end
 end
@@ -12,9 +12,10 @@ class CleverTitle
 
   @@prepositions = %w(aboard about above across after against along amid among anti around as at before behind below beneath beside besides between beyond but by concerning considering despite down during except excepting excluding following for from in inside into like minus near of off on onto opposite outside over past per plus regarding round save since than through to toward towards under underneath unlike until up upon versus via with within without)
 
-  def initialize(title, max_downcase_conversion = 4)
+  def initialize(title, args = {})
     @title = title
-    @max_downcase_conversion = max_downcase_conversion
+    @max_downcase_conversion = 4
+    @max_downcase_conversion = args[:max_downcase_conversion] if args[:max_downcase_conversion]
     self.run
   end
 

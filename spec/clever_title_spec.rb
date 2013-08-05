@@ -21,7 +21,12 @@ describe CleverTitle do
     clever_title.should eql "and if yet"
   end
   it "should keep conjunctions above 4 words capitalised by default" do
-    clever_title = "Cornelius provided the man ABOARD the boat WITH TWO FISH".clever_title
-    clever_title.should eql "Cornelius Provided The Man Aboard The Boat with Two Fish"
+    clever_title = "Cornelius provided the man ABOARD the boat WITH TWO FISH AFTER".clever_title
+    clever_title.should eql "Cornelius Provided The Man Aboard The Boat with Two Fish After"
+  end
+  
+  it "should capitalise conjunctions above 5 if set to 6" do
+    clever_title = "Cornelius provided the man ABOARD the boat WITH TWO FISH AFTER".clever_title(max_downcase_conversion: 6)
+    clever_title.should eql "Cornelius Provided The Man aboard The Boat with Two Fish after"
   end
 end
