@@ -6,7 +6,7 @@ class String
 end
 
 class CleverTitle
-  attr_accessor :title, :max_downcase_conversion
+  attr_accessor :title, :max_downcase_conversion, :capitalize_first_letter
 
   @@conjunctions = %w(and or but nor so for yet after although long as because before even if even though if once provided since that though till unless until what when whenever wherever whether while)
 
@@ -16,6 +16,7 @@ class CleverTitle
     @title = title
     @max_downcase_conversion = 4
     @max_downcase_conversion = args[:max_downcase_conversion] if args[:max_downcase_conversion]
+    @capitalize_first_letter = true unless args[:capitalize_first_letter] == false
     self.run
   end
 
@@ -25,6 +26,7 @@ class CleverTitle
     capitalise
     # lower_conjunctions
     lower_words
+    capitalise_first_word if @capitalize_first_letter
   end
 
   def capitalise
@@ -39,6 +41,10 @@ class CleverTitle
     words = @title.split
     fixed = words.map { |w| if words_to_filter.include? w.downcase then w.downcase! else w end }
     @title = fixed.join ' '
+  end
+
+  def capitalise_first_word
+    @title = @title.slice(0,1).upcase + @title.slice(1..-1)
   end
 
   def seperate_words
