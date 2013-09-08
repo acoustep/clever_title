@@ -1,9 +1,14 @@
 require 'spec_helper'
 
 describe CleverTitle do
-  it "should be an instance of CleverTitle" do
-    clever_title = CleverTitle.new "test"
-    clever_title.should be_kind_of CleverTitle
+  before(:all) do
+    class String
+      include CleverTitle
+    end
+  end
+  it "should be an instance of String" do
+    clever_title = "test".clever_title
+    clever_title.should be_kind_of String
   end
 
   it "should return a string" do

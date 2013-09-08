@@ -1,23 +1,16 @@
-class String
-  def clever_title args = {}
-    clever = CleverTitle.new self, args
-    clever.title
-  end
-end
-
-class CleverTitle
+module CleverTitle
   attr_accessor :title, :max_downcase_conversion, :capitalize_first_letter
-
   @@conjunctions = %w(and or but nor so for yet after although long as because before even if even though if once provided since that though till unless until what when whenever wherever whether while)
 
   @@prepositions = %w(aboard about above across after against along amid among anti around as at before behind below beneath beside besides between beyond but by concerning considering despite down during except excepting excluding following for from in inside into like minus near of off on onto opposite outside over past per plus regarding round save since than through to toward towards under underneath unlike until up upon versus via with within without)
 
-  def initialize(title, args = {})
-    @title = title
+  def clever_title args = {}
+    @title = self
     @max_downcase_conversion = 4
     @max_downcase_conversion = args[:max_downcase_conversion] if args[:max_downcase_conversion]
     @capitalize_first_letter = true unless args[:capitalize_first_letter] == false
     self.run
+    @title
   end
 
   protected
