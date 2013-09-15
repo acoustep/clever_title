@@ -2,3 +2,4 @@
 *.swp
 *.rbc
 /Gemfile.lock
+/doc/*
