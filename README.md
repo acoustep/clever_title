@@ -35,3 +35,6 @@ Notice how "aboard" is capitalised where as "with" is not.
 * Test and implement usage with arrays / hashes (including looping through a list of them)
 * Check for periods and force capitalise next word.
 * Allow a list of words that must either be converted to all uppercase or remain as all uppercase if already set.
+
+## Code Status
+[![Build Status](https://travis-ci.org/acoustep/clever_title.png?branch=master)](https://travis-ci.org/acoustep/clever_title)
