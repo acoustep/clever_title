@@ -37,4 +37,5 @@ Notice how "aboard" is capitalised where as "with" is not.
 * Allow a list of words that must either be converted to all uppercase or remain as all uppercase if already set.
 
 ## Code Status
+[![Gem Version](https://badge.fury.io/rb/clever_title.png)](http://badge.fury.io/rb/clever_title) 
 [![Build Status](https://travis-ci.org/acoustep/clever_title.png?branch=master)](https://travis-ci.org/acoustep/clever_title)
