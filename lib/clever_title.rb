@@ -13,9 +13,18 @@ module CleverTitle
 	# A list of prepositions for lowercase
   @@prepositions = %w(aboard about above across after against along amid among anti around as at before behind below beneath beside besides between beyond but by concerning considering despite down during except excepting excluding following for from in inside into like minus near of off on onto opposite outside over past per plus regarding round save since than through to toward towards under underneath unlike until up upon versus via with within without)
 
-	# Call this function on a string to add title case
-	# Optionally configure max_downcase_conversion and capitalize_first_letter
-  def clever_title args = {}
+	#Call this function on a string to add title case
+	#
+	#Optionally configure max_downcase_conversion and capitalize_first_letter
+	#
+	#== Example #1
+	#
+	#	"hello world".clever_title # "Hello World"
+	#
+	#== Example #2
+	#
+	#	"hello world".clever_title(max_downcase_conversion: 5) # "Hello World"
+  def clever_title args = {} # :args: :max_downcase_conversion, :capitalize_first_letter
     @title = self
     @max_downcase_conversion = 4
     @max_downcase_conversion = args[:max_downcase_conversion] if args[:max_downcase_conversion]
