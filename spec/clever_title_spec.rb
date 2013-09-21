@@ -59,6 +59,11 @@ describe CleverTitle do
 		clever_title = "This is Sentence One. and this is Sentence Two. yet this is Sentence Two".clever_title
 		clever_title.should eql "This Is Sentence One. And This Is Sentence Two. Yet This Is Sentence Two"
 	end
+	
+	it "should not capitalize after period if :capitalize_after_period is false" do
+		clever_title = "This is Sentence One. and this is Sentence Two. yet this is Sentence Two".clever_title capitalize_after_period: false
+		clever_title.should eql "This Is Sentence One. and This Is Sentence Two. yet This Is Sentence Two"
+	end
 
 	it "should not alter the string it's run on" do
 		title = "temporary"
