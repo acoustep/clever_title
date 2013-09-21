@@ -49,4 +49,26 @@ describe CleverTitle do
     clever_title = "and nothing else matters".clever_title capitalize_first_letter: false
     clever_title.should eql "and Nothing Else Matters"
   end
+
+	it "should capitalize the next letter after a period and one or more spaces" do
+		clever_title = "This is Sentence One. and this is Sentence Two".clever_title
+		clever_title.should eql "This Is Sentence One. And This Is Sentence Two"
+	end
+
+	it "should capitalize the next letter after a period and one or more spaces on multiple sentences" do
+		clever_title = "This is Sentence One. and this is Sentence Two. yet this is Sentence Two".clever_title
+		clever_title.should eql "This Is Sentence One. And This Is Sentence Two. Yet This Is Sentence Two"
+	end
+
+	it "should not alter the string it's run on" do
+		title = "temporary"
+		temporary = title.clever_title.should eql "Temporary"
+		title.should eql "temporary"
+	end
+
+	it "should alter the string if clever_title! is run" do
+		title = "temporary"
+		temporary = title.clever_title!.should eql "Temporary"
+		title.should eql "Temporary"
+	end
 end

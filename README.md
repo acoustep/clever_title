@@ -21,6 +21,15 @@ Call it on the string of your choice.
 => "Hello World"
 ```
 
+Use clever_title! to persist changes to the current string
+
+```
+title = "hello world"
+title.clever_title!
+title
+=> "Hello World"
+```
+
 There is a list of common conjunctions and prepositions that will be kept as lowercase.  When running clever_title you can set the maximum amount of letters in a word that will be made lowercase by adding the hash ```:max_downcase_conversion``` like so
 
 ```
